@@ -1,0 +1,7 @@
+LIBRARY      "xllFunctions.dll"
+
+EXPORTS
+	GetNumberOfFunctions @1
+	GetFunctionInfo @2
+	PriceAmerican @3
+	PriceEuropean @4

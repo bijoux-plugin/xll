@@ -1,0 +1,18 @@
+; xllMain.def : Declares the module parameters for the DLL.
+
+LIBRARY      "xllMain.xll"
+
+EXPORTS
+    ; Explicit exports can go here
+	xlAutoOpen @1
+	xlAutoClose @2
+	xlAutoRegister @3
+	xlAutoAdd @4
+	xlAutoRemove @5
+	xlAutoFree @6
+	xlAddInManagerInfo @7
+	; Our Functions
+	FSExecuteNumber @8
+	FS0 @9
+	FS1 @10
+	FS2 @11

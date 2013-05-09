@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xllTester", "xllTester\xllTester.vcxproj", "{215F5FC8-D3FC-491E-A24E-439A213EC705}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xllAddin", "xllAddin\xllAddin.vcxproj", "{9543BA2F-E526-4D6A-A5D4-37057E6B8BA1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xllFunctions", "xllFunctions\xllFunctions.vcxproj", "{33FCD6A7-3AC1-4FB1-9B9B-BC51A08411A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{215F5FC8-D3FC-491E-A24E-439A213EC705}.Debug|Win32.ActiveCfg = Debug|Win32
+		{215F5FC8-D3FC-491E-A24E-439A213EC705}.Release|Win32.ActiveCfg = Release|Win32
+		{215F5FC8-D3FC-491E-A24E-439A213EC705}.Release|Win32.Build.0 = Release|Win32
+		{9543BA2F-E526-4D6A-A5D4-37057E6B8BA1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9543BA2F-E526-4D6A-A5D4-37057E6B8BA1}.Release|Win32.ActiveCfg = Release|Win32
+		{9543BA2F-E526-4D6A-A5D4-37057E6B8BA1}.Release|Win32.Build.0 = Release|Win32
+		{33FCD6A7-3AC1-4FB1-9B9B-BC51A08411A0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{33FCD6A7-3AC1-4FB1-9B9B-BC51A08411A0}.Debug|Win32.Build.0 = Debug|Win32
+		{33FCD6A7-3AC1-4FB1-9B9B-BC51A08411A0}.Release|Win32.ActiveCfg = Release|Win32
+		{33FCD6A7-3AC1-4FB1-9B9B-BC51A08411A0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
