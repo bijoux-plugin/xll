@@ -1,0 +1,9 @@
+Debug
+ipch
+xllAddin/Debug
+xllFunctions/Debug
+xllTester/Debug
+*~
+*.opensdf
+*.sdf
+*.suo
