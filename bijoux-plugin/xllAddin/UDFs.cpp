@@ -11,10 +11,13 @@ extern HMODULE hCalypso2Excel;
 extern std::vector<FUNC_INFO*> all_functions;
 
 
-LPXLOPER call_custom_function(int number_of_parameters, void *parameters, void *func_ptr)
-{
+LPXLOPER call_custom_function ( int number_of_parameters, void *parameters, void *func_ptr ) {
+
 	LPXLOPER result;
 	int i;
+
+#ifdef _WIN64
+#else
 	__asm
 	{
 		mov i, 0
@@ -36,6 +39,8 @@ LPXLOPER call_custom_function(int number_of_parameters, void *parameters, void *
 			dec ecx
 			jnz loopclean
 	}
+#endif
+
 	return result;
 }
 

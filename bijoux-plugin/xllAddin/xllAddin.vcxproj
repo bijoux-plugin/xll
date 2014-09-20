@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="UDFs.cpp" />
+    <ClCompile Include="xlCall.cpp" />
     <ClCompile Include="xllMain.cpp" />
     <ClCompile Include="XLUtil.cpp" />
   </ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="XLUtil.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="caller.asm" />
     <None Include="xllAddin.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

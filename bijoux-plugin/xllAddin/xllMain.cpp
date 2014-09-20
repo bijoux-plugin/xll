@@ -152,26 +152,22 @@ __declspec(dllexport) void WINAPI xlAutoFree(LPXLOPER px)
 // You can add a new customized title for the user, but
 // unfortunately, only an add-in written in Microsoft Visual Basic
 // can add a description string.
-__declspec(dllexport) LPXLOPER WINAPI xlAddInManagerInfo(LPXLOPER xAction)
-{
+__declspec(dllexport) LPXLOPER WINAPI xlAddInManagerInfo ( LPXLOPER xAction ) {
+
 	static XLOPER xInfo, xIntAction;
 
-	Excel4 ( xlCoerce, &xIntAction, 2, xAction, TempInt(xltypeInt) );
+	Excel4 ( xlCoerce, &xIntAction, 2, xAction, TempInt ( xltypeInt ) );
 
-	if ( xIntAction.val.w == 1)
-	{
+	if ( xIntAction.val.w == 1) {
 		xInfo.xltype = xltypeStr;
 		xInfo.val.str = "\10xllAddin";
-	}
-	else
-	{
+	} else {
 		xInfo.xltype = xltypeErr;
 		xInfo.val.err = xlerrValue;
 	}
 
 	return (LPXLOPER) &xInfo;
 }
-
 
 #define DECLARE_EXCEL_FUNCTION(number) \
 __declspec(dllexport) LPXLOPER WINAPI FS##number (LPXLOPER v0, LPXLOPER v1, LPXLOPER v2 \
