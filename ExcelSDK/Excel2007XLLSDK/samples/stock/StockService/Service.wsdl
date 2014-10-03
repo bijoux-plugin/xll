@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://imaginarystockservice/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://imaginarystockservice/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://imaginarystockservice/">
+      <s:element name="GetAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllResult" type="tns:StockInfoHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StockInfoHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="open" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="close" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="low" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="high" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOpen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOpenResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClose">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCloseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCloseResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLowResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHigh">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHighResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetHighResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stSymbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="length" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRangeResult" type="tns:ArrayOfDouble" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDouble">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="double" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpen" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCloseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClose" />
+  </wsdl:message>
+  <wsdl:message name="GetCloseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLowSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLow" />
+  </wsdl:message>
+  <wsdl:message name="GetLowSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLowResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHighSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHigh" />
+  </wsdl:message>
+  <wsdl:message name="GetHighSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHighResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRange" />
+  </wsdl:message>
+  <wsdl:message name="GetRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetAll">
+      <wsdl:input message="tns:GetAllSoapIn" />
+      <wsdl:output message="tns:GetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpen">
+      <wsdl:input message="tns:GetOpenSoapIn" />
+      <wsdl:output message="tns:GetOpenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClose">
+      <wsdl:input message="tns:GetCloseSoapIn" />
+      <wsdl:output message="tns:GetCloseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLow">
+      <wsdl:input message="tns:GetLowSoapIn" />
+      <wsdl:output message="tns:GetLowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHigh">
+      <wsdl:input message="tns:GetHighSoapIn" />
+      <wsdl:output message="tns:GetHighSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRange">
+      <wsdl:input message="tns:GetRangeSoapIn" />
+      <wsdl:output message="tns:GetRangeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://imaginarystockservice/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpen">
+      <soap:operation soapAction="http://imaginarystockservice/GetOpen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClose">
+      <soap:operation soapAction="http://imaginarystockservice/GetClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLow">
+      <soap:operation soapAction="http://imaginarystockservice/GetLow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHigh">
+      <soap:operation soapAction="http://imaginarystockservice/GetHigh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRange">
+      <soap:operation soapAction="http://imaginarystockservice/GetRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+   <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:1618/StockService/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

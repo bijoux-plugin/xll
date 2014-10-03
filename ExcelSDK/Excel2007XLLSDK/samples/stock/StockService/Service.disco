@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<disco:discovery xmlns:disco="http://schemas.xmlsoap.org/disco/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <scl:contractRef ref="http://localhost:1618/StockService/Service.asmx?wsdl" docRef="http://localhost:1618/StockService/Service.asmx" xmlns:scl="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:1618/StockService/Service.asmx" xmlns:q1="http://imaginarystockservice/" binding="q1:ServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</disco:discovery>

@@ -1,0 +1,19 @@
+;***************************************************************************
+; File: stock.def
+;
+; Purpose: Definition file for Stock.xll project
+;***************************************************************************
+
+LIBRARY STOCK.XLL
+
+EXPORTS
+	xlAutoOpen
+	xlAddInManagerInfo
+	FuncStock
+	GetStockMetric
+	GetStockScore
+	FuncStockOld
+	GetStockMetricOld
+	GetStockScoreOld
+	SetWebPolling
+	GetWebPolling
