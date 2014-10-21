@@ -20,11 +20,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="power.asm">
+    <MASM Include="power.asm">
       <Filter>Source Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="clear.asm">
+    </MASM>
+    <MASM Include="power64.asm">
       <Filter>Source Files</Filter>
-    </CustomBuild>
+    </MASM>
   </ItemGroup>
 </Project>

@@ -156,7 +156,10 @@ __declspec(dllexport) LPXLOPER WINAPI xlAddInManagerInfo ( LPXLOPER xAction ) {
 
 	static XLOPER xInfo, xIntAction;
 
-	Excel4 ( xlCoerce, &xIntAction, 2, xAction, TempInt ( xltypeInt ) );
+	XLOPER xlInt;
+	xlInt.xltype = xltypeInt;
+	xlInt.val.w;
+	Excel4 ( xlCoerce, &xIntAction, 2, xAction, xlInt );
 
 	if ( xIntAction.val.w == 1) {
 		xInfo.xltype = xltypeStr;

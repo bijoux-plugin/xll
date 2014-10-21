@@ -165,7 +165,7 @@
     <ClInclude Include="XLUtil.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="caller.asm" />
+    <None Include="caller64.asm" />
     <None Include="xllAddin.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

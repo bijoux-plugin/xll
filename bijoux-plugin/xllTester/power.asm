@@ -1,19 +1,19 @@
-; POWER.ASM
-; Compute the power of an integer
-;
-       PUBLIC _power2
-_TEXT SEGMENT WORD PUBLIC 'CODE'
-_power2 PROC
+.586              ;Target processor.  Use instructions for Pentium class machines
+.MODEL FLAT, C    ;Use the flat memory model. Use C calling conventions
+.STACK            ;Define a stack segment of 1KB (Not required for this example)
+.DATA             ;Create a near data segment.  Local variables are declared after
+                  ;this directive (Not required for this example)
+.CODE             ;Indicates the start of a code segment.
 
-        push ebp        ; Save EBP
-        mov ebp, esp    ; Move ESP into EBP so we can refer
-                        ;   to arguments on the stack
-        mov eax, [ebp+8] ; Get first argument
-        mov ecx, [ebp+12] ; Get second argument
-        shl eax, cl     ; EAX = EAX * ( 2 ^ CL )
-        pop ebp         ; Restore EBP
-        ret             ; Return with sum in EAX
+swap PROC
+    mov ecx, [esp+4]
+    mov edx, [esp+8]
+    mov eax, [ecx]
+	mov ebx, [edx]
+	mov [edx], eax
+	mov [ecx], ebx
+    ;xchg [ecx],eax
+    ret
+swap ENDP 
+END
 
-_power2 ENDP
-_TEXT   ENDS
-        END

@@ -6,6 +6,7 @@
 #include <Objbase.h>
 #include <atlbase.h>
 
+/*
 // Whooper finds its instance by creating and saving a new workbook
 // with a random number in the name to avoid collisions
 // I want to iterate through all IDispatch interfaces
@@ -100,9 +101,19 @@ int connectToAllInstances()
 	CoUninitialize();
 }
 
+*/
+
+extern "C" void swap ( int *a, int *b);
 
 int main(void)
 {
-	
-	return (0);
+	int a = 100;
+	int b = 200;
+	std::cout << "\nsizeof(a) = " << sizeof(a);
+	swap ( &a, &b );
+	std::cout << "\na = " << a;
+	std::cout << "\nb = " << b;
+	std::cout << "\n";
+
+	return ( 0 );
 }

@@ -52,7 +52,7 @@
     <None Include="xllAddin.def">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="caller.asm">
+    <None Include="caller64.asm">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
