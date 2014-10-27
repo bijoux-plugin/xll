@@ -103,10 +103,29 @@ int connectToAllInstances()
 
 */
 
+int function_one ( int one ) {
+	return one * 3;
+}
+
+int function_two ( int one, int two ) {
+	return one + two;
+}
+
+int function_three ( int one, int two, int three ) {
+	return one + two + three;
+}
+
+extern "C" int __cdecl func_0 ( void );
+extern "C" int __cdecl func_1 ( int );
+extern "C" int __cdecl func_2 ( int, int );
+
+extern "C" int __cdecl  call_function ( void *parm1 );
+
 extern "C" void swap ( int *a, int *b);
 
 int main(void)
 {
+	/*
 	int a = 100;
 	int b = 200;
 	std::cout << "\nsizeof(a) = " << sizeof(a);
@@ -114,6 +133,29 @@ int main(void)
 	std::cout << "\na = " << a;
 	std::cout << "\nb = " << b;
 	std::cout << "\n";
+
+	
+	int (*func_ptr) ( int );
+	func_ptr = &function_one;
+	int result = (*func_ptr) ( 2 );
+	std::cout << "\nresult = " << result;
+
+//	void *addr_func = function_one;
+	std::cout << "\naddr_func = " << function_one;
+	std::cout << "\naddr_func = " << &function_one;
+	function_one ( 1 );
+
+	int result_2 = call_function ( func_ptr );
+	std::cout << "\nResult 2 = " << std::hex << result_2;
+	*/
+
+	std::cout << "\nfunction_one ( ) = " << function_one ( 10 );
+
+	std::cout << "\nExpecting: 123, func_0 ( ) = " << func_0 ( );
+	std::cout << "\nExpecting: 60, func_1 ( 10 ) = " << func_1 ( 10 );
+//	std::cout << "\nfunc_2 ( 10, 20 ) = " << func_2 ( 10, 20 );
+
+	
 
 	return ( 0 );
 }
