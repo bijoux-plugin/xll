@@ -9,23 +9,20 @@
 func_0 PROC
 	push ebp
 	mov ebp, esp
-
 ; Save state of all registers
 	push ebx
-	push ecx
-	push edx
 	push esi
 	push edi
 
 ; Function Body
-	mov eax, 123
+	mov eax, 300
 
 ; Restore state of all registers
 	pop edi
 	pop esi
-	pop edx
-	pop ecx
 	pop ebx
+; Restore Stack and Base Pointer
+	mov esp, ebp
 	pop ebp
 	ret
 func_0 ENDP
@@ -33,62 +30,92 @@ func_0 ENDP
 func_1 PROC
 	push ebp
 	mov ebp, esp
-
-; Save state of all registers
 	push ebx
-	push ecx
-	push edx
 	push esi
 	push edi
 
 ; Function Body
-	mov eax, 123
+	mov eax, dword ptr [ebp+8]
+	imul eax, eax, 3
 
 ; Restore state of all registers
 	pop edi
 	pop esi
-	pop edx
-	pop ecx
 	pop ebx
+; Restore Stack and Base Pointer
+	mov esp, ebp
 	pop ebp
 	ret
 func_1 ENDP
 
 func_2 PROC
-func_2 ENDP
-
-
-call_function PROC
-;	mov eax, [esp+4]
-
 	push ebp
 	mov ebp, esp
-
-; Prepare for call to function in [esp+4]
-; 1 parameter
-	mov eax, [esp+8]
-	mov ebx, 32
 	push ebx
-; call the function
-	call eax
-; get the result and place it in eax
-	pop ebx
-;	mov eax, 4
+	push esi
+	push edi
 
+; Function Body
+	mov eax, dword ptr [ebp+8]
+	add eax, dword ptr [ebp+12]
+	;imul eax, eax, 3
+
+; Restore state of all registers
+	pop edi
+	pop esi
+	pop ebx
+; Restore Stack and Base Pointer
+	mov esp, ebp
+	pop ebp
+	ret
+func_2 ENDP
+
+func_3 PROC
+	push ebp
+	mov ebp, esp
+	push ebx
+	push esi
+	push edi
+
+; Function Body
+	mov eax, dword ptr [ebp+8]
+	add eax, dword ptr [ebp+12]
+	add eax, dword ptr [ebp+16]
+	;imul eax, eax, 3
+
+; Restore state of all registers
+	pop edi
+	pop esi
+	pop ebx
+; Restore Stack and Base Pointer
+	mov esp, ebp
+	pop ebp
+	ret
+func_3 ENDP
+
+call_function PROC
+	push ebp
+	mov ebp, esp
+	push ebx
+	push esi
+	push edi
+
+; Function Body
+; Push parameter onto the stack
+	push dword ptr [ ebp+8]
+	push dword ptr [ ebp+12]
+	;mov eax, dword ptr [ebp+8]
+	call func_2
+
+; Restore state of all registers
+	pop edi
+	pop esi
+	pop ebx
+; Restore Stack and Base Pointer
+	mov esp, ebp
 	pop ebp
 	ret
 
 call_function ENDP
 
-swap PROC
-    mov ecx, [esp+4]
-    mov edx, [esp+8]
-    mov eax, [ecx]
-	mov ebx, [edx]
-	mov [edx], eax
-	mov [ecx], ebx
-    ;xchg [ecx],eax
-    ret
-swap ENDP 
 END
-

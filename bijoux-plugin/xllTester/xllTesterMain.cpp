@@ -1,10 +1,12 @@
 
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "catch.hpp"
 
 #include <iostream>
 
-#include <ObjIdl.h>
-#include <Objbase.h>
-#include <atlbase.h>
+//#include <ObjIdl.h>
+//#include <Objbase.h>
+//#include <atlbase.h>
 
 /*
 // Whooper finds its instance by creating and saving a new workbook
@@ -103,6 +105,9 @@ int connectToAllInstances()
 
 */
 
+int function_zero ( void ) {
+	return 200;
+}
 int function_one ( int one ) {
 	return one * 3;
 }
@@ -118,44 +123,39 @@ int function_three ( int one, int two, int three ) {
 extern "C" int __cdecl func_0 ( void );
 extern "C" int __cdecl func_1 ( int );
 extern "C" int __cdecl func_2 ( int, int );
+extern "C" int __cdecl func_3 ( int, int, int );
 
-extern "C" int __cdecl  call_function ( void *parm1 );
+extern "C" int __cdecl  call_function ( int, int );
 
-extern "C" void swap ( int *a, int *b);
+TEST_CASE ( "Calling C++ version of each function", "[c-method]" ) {
+    REQUIRE ( function_zero ( ) == 200 );
+	REQUIRE ( function_one ( 10 ) == 30 );
+	REQUIRE ( function_two ( 10, 20 ) == 30 );
+	REQUIRE ( function_three ( 10, 20, 30 ) == 60 );
+}
 
-int main(void)
-{
-	/*
-	int a = 100;
-	int b = 200;
-	std::cout << "\nsizeof(a) = " << sizeof(a);
-	swap ( &a, &b );
-	std::cout << "\na = " << a;
-	std::cout << "\nb = " << b;
-	std::cout << "\n";
+TEST_CASE ( "Calling 0-parameter assembly function with C-Calling conventions", "[c-method-0-parm]" ) {
+    REQUIRE ( func_0 ( ) == 300 );
+}
 
-	
-	int (*func_ptr) ( int );
-	func_ptr = &function_one;
-	int result = (*func_ptr) ( 2 );
-	std::cout << "\nresult = " << result;
+TEST_CASE ( "Calling 1-parameter assembly function with C-Calling conventions", "[c-method-1-parm]" ) {
+	REQUIRE ( func_1 ( 10 ) == 30 );
+	REQUIRE ( func_1 ( 20 ) == 60 );
+	REQUIRE ( func_1 ( 30 ) == 90 );
+}
 
-//	void *addr_func = function_one;
-	std::cout << "\naddr_func = " << function_one;
-	std::cout << "\naddr_func = " << &function_one;
-	function_one ( 1 );
+TEST_CASE ( "Calling 2-parameter assembly function with C-Calling conventions", "[c-method-2-parm]" ) {
+	REQUIRE ( func_2 ( 1, 2 ) == 3 );
+	REQUIRE ( func_2 ( 100, 200 ) == 300 );
+	REQUIRE ( func_2 ( 18, 1 ) == 19 );
+}
 
-	int result_2 = call_function ( func_ptr );
-	std::cout << "\nResult 2 = " << std::hex << result_2;
-	*/
+TEST_CASE ( "Calling 3-parameter assembly function with C-Calling conventions", "[c-method-3-parm]" ) {
+	REQUIRE ( func_3 ( 1, 2, 3 ) == 6 );
+	REQUIRE ( func_3 ( 100, 200, 300 ) == 600 );
+	REQUIRE ( func_3 ( 18, 1, 2 ) == 21 );
+}
 
-	std::cout << "\nfunction_one ( ) = " << function_one ( 10 );
-
-	std::cout << "\nExpecting: 123, func_0 ( ) = " << func_0 ( );
-	std::cout << "\nExpecting: 60, func_1 ( 10 ) = " << func_1 ( 10 );
-//	std::cout << "\nfunc_2 ( 10, 20 ) = " << func_2 ( 10, 20 );
-
-	
-
-	return ( 0 );
+TEST_CASE ( "Calling assembly function from assembly function with C-Calling convention", "[c-asm-asm-0-parm]" ) {
+	REQUIRE ( call_function ( 11, 20 ) == 31 );
 }
