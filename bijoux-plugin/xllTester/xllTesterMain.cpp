@@ -125,7 +125,7 @@ extern "C" int __cdecl func_1 ( int );
 extern "C" int __cdecl func_2 ( int, int );
 extern "C" int __cdecl func_3 ( int, int, int );
 
-extern "C" int __cdecl  call_function ( int, int );
+extern "C" int __cdecl  call_function ( void *f_ptr, int n_args, int *args );
 
 TEST_CASE ( "Calling C++ version of each function", "[c-method]" ) {
     REQUIRE ( function_zero ( ) == 200 );
@@ -156,6 +156,30 @@ TEST_CASE ( "Calling 3-parameter assembly function with C-Calling conventions", 
 	REQUIRE ( func_3 ( 18, 1, 2 ) == 21 );
 }
 
-TEST_CASE ( "Calling assembly function from assembly function with C-Calling convention", "[c-asm-asm-0-parm]" ) {
-	REQUIRE ( call_function ( 11, 20 ) == 31 );
+TEST_CASE ( "Calling C function from assembly function with C-Calling convention", "[c-asm-c-0-parm]" ) {
+	REQUIRE ( call_function ( &function_zero, 0, NULL ) == 200 );
+}
+
+TEST_CASE ( "Calling C function with 1 parameter from assembly function with C-Calling convention", "[c-asm-c-1-parm]" ) {
+	int args [ ] = { 1 };
+	REQUIRE ( call_function ( &function_one, 1, args ) == 3 );
+	args [ 0 ] = 5;
+	REQUIRE ( call_function ( &function_one, 1, args ) == 15 );
+	args [ 0 ] = 15;
+	REQUIRE ( call_function ( &function_one, 1, args ) == 45 );
+
+	// Allocate a new array to make sure the stack is uncorrupted
+	int args_2 [ ] = { 20 };
+	REQUIRE ( call_function ( &function_one, 1, args_2 ) == 60 );
+}
+
+TEST_CASE ( "Calling C function with 2 parameters from assembly function with C-Calling convention", "[c-asm-c-2-parm]" ) {
+	int args [ ] = { 1, 4 };
+	REQUIRE ( call_function ( &function_two, 1, args ) == 5 );
+	args [ 0 ] = 5;
+	args [ 1 ] = 10;
+	REQUIRE ( call_function ( &function_two, 1, args ) == 15 );
+	args [ 0 ] = 55;
+	args [ 1 ] = 10;
+	REQUIRE ( call_function ( &function_two, 1, args ) == 65 );
 }
