@@ -15,15 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="xllTesterMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="power.asm">
+    <MASM Include="caller.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="power64.asm">
+    <MASM Include="caller64.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
@@ -31,5 +26,16 @@
     <ClInclude Include="include\catch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="assemblyCallerTests_32bit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="asmCallerTests_64bit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -101,30 +101,44 @@ call_function PROC
 	push edi
 
 ; Function Body
-; [ebp+8] = address of function to call
-; [ebp+12] = number of arguments
-; [ebp+16] = address of array with arguments
+	; [ebp+8] = address of function to call
+	; [ebp+12] = number of arguments
+	; [ebp+16] = address of array with arguments
 
 ; If statement
-; Move # of arguments into eax register
-	mov eax, [ebp+12]
+; Move # of arguments into ecx register
+	mov ecx, [ebp+12]
+; Move parameter address into eax register
+	mov eax, [ebp+16]
+
+; If 0 parameters, skip directly to call the function
+	cmp ecx, 0
+	jz call_target_func
+
 loop_again:
-	cmp eax, 0
-	je call_func
-
-	mov ebx, 12
-	; Read array parameters and place onto stack
-	;mov eax, dword ptr [ebp+16]
-	mov eax, dword ptr [ebp+ebx+4]
+; Read one array parameter and place onto stack
 	push dword ptr[eax]
-	call dword ptr [ebp+8]
-	add esp, 4
-	jmp return_to_caller
+; Increment pointer to parameters pointer array
+	add eax, 4
+; Increment stack pointer because we just 
+;	add esp, 4
+	loop loop_again
 
-call_func:
+; Call the function
+call_target_func:
 	call dword ptr [ebp+8]
+
+; Restore proper size of stack
+	mov ecx, [ebp+12]
+	cmp ecx, 0
+	jz return_to_caller
+
+restore_stack:
+	pop ebx
+	loop restore_stack;
 
 return_to_caller:
+
 ; Restore state of all registers
 	pop edi
 	pop esi
