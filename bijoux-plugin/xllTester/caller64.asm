@@ -88,7 +88,6 @@ func_6 ENDP
 call_function PROC
 	push rdi
 ; make room on stack
-;	sub esp, 32h
 	sub rsp, 0A00h
 	mov rdi, rsp
 ; 1st 4 integer or pointer parameters are stored in:
@@ -131,9 +130,6 @@ add_parm_to_stack:
 	add r13, 4
 	add r14, 8
 	loop add_parm_to_stack
-; move 6th parameter to the top of the stack
-	;mov ebx, dword ptr[r13+4]
-	;mov dword ptr [r14+8], ebx
 
 do_first_parameters:
 ; if there are 0 parameters jump straight to function call
@@ -158,8 +154,6 @@ do_first_parameters:
 ; if there are 4 parameters only, jump to function call
 	cmp r11, 4
 	je call_func
-
-
 
 call_func:
 	call r10

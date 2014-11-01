@@ -194,16 +194,16 @@ TEST_CASE ( "Calling C function with 12 parameters from assembly function", "[c-
 	args [ 3 ] = 111;
 	args [ 4 ] = 100;
 	args [ 5 ] = 1000;
-	REQUIRE ( call_function ( &function_six, 6, args ) == 1448 );
+	REQUIRE ( call_function ( &function_twelve, 12, args ) == 1505 );
 	args [ 0 ] = 55;
 	args [ 1 ] = 10;
 	args [ 2 ] = -22;
 	args [ 3 ] = 100;
 	args [ 4 ] = 123;
 	args [ 5 ] = 2000;
-	REQUIRE ( call_function ( &function_six, 6, args ) == 2266 );
+	REQUIRE ( call_function ( &function_twelve, 12, args ) == 2323 );
 }
-/*
+
 TEST_CASE ( "Calling assembly function from assembly function with C-Calling convention with 0 parameters", "[c-asm-asm-0-parm]" ) {
 	REQUIRE ( call_function ( &func_0, 0, NULL ) == 300 );
 }
@@ -244,4 +244,3 @@ TEST_CASE ( "Calling assembly function with 3 parameters from assembly function 
 	args [ 2 ] = -22;
 	REQUIRE ( call_function ( &func_3, 3, args ) == 43 );
 }
-*/
