@@ -28,6 +28,10 @@ int function_six ( int one, int two, int three, int four, int five, int six ) {
 	return one + two + three + four + five + six;
 }
 
+int function_twelve ( int one, int two, int three, int four, int five, int six, int seven, int eight, int nine, int ten, int eleven, int twelve ) {
+	return one + two + three + four + five + six + seven + eight + nine + ten + eleven + twelve;
+}
+
 extern "C" int func_0 ( void );
 extern "C" int func_1 ( int );
 extern "C" int func_2 ( int, int );
@@ -89,6 +93,7 @@ TEST_CASE ( "Calling 6-parameter assembly function", "[c-method-3-parm]" ) {
 	REQUIRE ( func_6 ( 18, 1, 2, 10, 11, 9 ) == 51 );
 }
 
+/*
 TEST_CASE ( "Calling C function from assembly function", "[c-asm-c-0-parm]" ) {
 	REQUIRE ( call_function ( &function_zero, 0, NULL ) == 200 );
 }
@@ -144,8 +149,11 @@ TEST_CASE ( "Calling C function with 4 parameters from assembly function", "[c-a
 	args [ 3 ] = 100;
 	REQUIRE ( call_function ( &function_four, 4, args ) == 143 );
 }
-
+*/
 TEST_CASE ( "Calling C function with 5 parameters from assembly function", "[c-asm-c-5-parm]" ) {
+//	int i = 0;
+//	int r12 = function_twelve ( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 );
+//	int r5 = function_five ( 1, 2, 3, 4, 5 );
 	int args [ ] = { 1, 4, 6, 7, 20 };
 	REQUIRE ( call_function ( &function_five, 5, args ) == 38 );
 	args [ 0 ] = 5;
@@ -163,9 +171,29 @@ TEST_CASE ( "Calling C function with 5 parameters from assembly function", "[c-a
 }
 
 TEST_CASE ( "Calling C function with 6 parameters from assembly function", "[c-asm-c-6-parm]" ) {
-	//int r = function_six ( 1, 2, 3, 4, 5, 6);
+//	int r = function_six ( 1, 2, 3, 4, 5, 6);
 	int args [ ] = { 1, 4, 6, 7, 20, 100 };
 	REQUIRE ( call_function ( &function_six, 6, args ) == 138 );
+	args [ 0 ] = 5;
+	args [ 1 ] = 10;
+	args [ 2 ] = 222;
+	args [ 3 ] = 111;
+	args [ 4 ] = 100;
+	args [ 5 ] = 1000;
+	REQUIRE ( call_function ( &function_six, 6, args ) == 1448 );
+	args [ 0 ] = 55;
+	args [ 1 ] = 10;
+	args [ 2 ] = -22;
+	args [ 3 ] = 100;
+	args [ 4 ] = 123;
+	args [ 5 ] = 2000;
+	REQUIRE ( call_function ( &function_six, 6, args ) == 2266 );
+}
+
+TEST_CASE ( "Calling C function with 12 parameters from assembly function", "[c-asm-c-12-parm]" ) {
+//	int r = function_six ( 1, 2, 3, 4, 5, 6);
+	int args [ ] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+	REQUIRE ( call_function ( &function_twelve, 12, args ) == 78 );
 	args [ 0 ] = 5;
 	args [ 1 ] = 10;
 	args [ 2 ] = 222;

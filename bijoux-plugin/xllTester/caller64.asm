@@ -87,13 +87,17 @@ func_6 ENDP
 
 call_function PROC
 	push rdi
+; make room on stack
+;	sub esp, 32h
+	sub rsp, 0A00h
+	mov rdi, rsp
 ; 1st 4 integer or pointer parameters are stored in:
 ; rcx, rdx, r8, r9
 ; rcx = target function address
 ; rdx = # of parameters
 ; r8 = pointer to base address
 
-	sub esp, 32h
+
 ; move address of target function to rcx
 	;mov rax, rcx
 	mov r10, rcx
@@ -126,20 +130,27 @@ call_function PROC
 ; if there are 4 parameters only, jump to function call
 	cmp r11, 4
 	je call_func
+
+; 5 => 20h
+; 5 => 20h, 6 => 28h
+; 5 => 20h, 6 => 28h, 7 => 30h, 8 => 38h
 ; move 5th parameter to the top of the stack
-	mov eax, dword ptr[r12+16]
-	mov dword ptr [rsp+28h], eax
+	mov eax, [r12+16]
+	;push rax
+	mov dword ptr[rsp+20h], eax
+	;mov dword ptr [rsp+28h], eax
 ; if there are 5 parameters only, jump to function call
 	cmp r11, 5
 	je call_func
 ; move 6th parameter to the top of the stack
 	mov eax, dword ptr[r12+20]
-	mov dword ptr [rsp+20h], eax
+	mov dword ptr [rsp+28h], eax
 
 call_func:
 	;call rax
 	call r10
-	add esp, 32h
+	add rsp, 0A00h
+	;add esp, 32h
 
 	pop rdi
 	ret
