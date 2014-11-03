@@ -79,13 +79,14 @@ void loadReferenceToDLL(LPXLOPER xDLL)
 	// Load Reference to our DLL
 	TCHAR szDir[260];
 	GetCurrentDirectory(sizeof(szDir), szDir);
-	LPCTSTR lpFileName = _T("xllFunctions.dll");
+	LPCTSTR lpFileName = _T("C:\\xllFunctions.dll");
 	hCalypso2Excel = LoadLibrary ( lpFileName );
 
 	if ( hCalypso2Excel == NULL )
 	{
 		int lastError = GetLastError();
 		//cout << "\nCould not load the DLL: " << lastError;
+		int i=0;
 	}
 
 	loadListOfFunctions(xDLL);

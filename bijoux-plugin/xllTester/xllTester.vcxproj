@@ -149,6 +149,7 @@
     <ClCompile Include="assemblyCallerTests_32bit.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="callXLFunction.64bit.cpp" />
     <ClCompile Include="OtherTests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\catch.hpp" />
+    <ClInclude Include="include\xlCall.64bit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

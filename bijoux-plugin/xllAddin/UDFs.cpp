@@ -16,6 +16,9 @@ LPXLOPER call_custom_function ( int number_of_parameters, void *parameters, void
 	LPXLOPER result;
 	int i;
 
+	int s_ret = sizeof ( result );
+	int s_void = sizeof ( parameters );
+	int s_f_ptr = sizeof ( func_ptr );
 #ifdef _WIN64
 #else
 	__asm

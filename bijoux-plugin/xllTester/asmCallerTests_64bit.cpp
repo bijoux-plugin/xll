@@ -1,3 +1,4 @@
+
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 
@@ -51,7 +52,6 @@ TEST_CASE ( "Calling C++ version of each function", "[c-all-methods]" ) {
 	REQUIRE ( function_five ( 10, 20, 30, 40, 50 ) == 150 );
 	REQUIRE ( function_six ( 10, 20, 30, 40, 50, 60 ) == 210 );
 }
-
 
 TEST_CASE ( "Calling 0-parameter assembly function", "[c-method-0-parm]" ) {
  	REQUIRE ( func_0 ( ) == 300 );

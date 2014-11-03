@@ -26,6 +26,9 @@
     <ClInclude Include="include\catch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\xlCall.64bit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assemblyCallerTests_32bit.cpp">
@@ -35,6 +38,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OtherTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="callXLFunction.64bit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
