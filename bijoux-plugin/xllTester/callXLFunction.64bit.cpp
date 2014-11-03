@@ -24,6 +24,35 @@ LPXLOPER call_custom_function ( void *func_ptr, int number_of_parameters, void *
 }
 */
 
+TEST_CASE ( "Validate sizes of types for 64-bit Excel using XLOPER", "[validate-xloper-4]" ) {
+	REQUIRE ( sizeof ( int ) == 4 );
+	REQUIRE ( sizeof ( LPXLOPER ) == 8 );
+	XLOPER testXlOper;
+	testXlOper.val.w = 10;
+	testXlOper.xltype = xltypeInt;
+	REQUIRE ( sizeof ( XLOPER ) == 24 );
+	REQUIRE ( sizeof ( testXlOper ) == 24 );
+	REQUIRE ( sizeof ( testXlOper.val.w ) == 2 ); // short
+	REQUIRE ( sizeof ( testXlOper.val.num ) == 8 ); // double
+	REQUIRE ( sizeof ( testXlOper.val.str ) == 8 ); // LPSTR
+	REQUIRE ( sizeof ( testXlOper.val.xbool ) == 2 ); // WORD
+	REQUIRE ( sizeof ( testXlOper.xltype ) == 2 ); // WORD
+}
+
+TEST_CASE ( "Validate sizes of types for 64-bit Excel using XLOPER12", "[validate-xloper-12]" ) {
+	REQUIRE ( sizeof ( int ) == 4 );
+	REQUIRE ( sizeof ( LPXLOPER12 ) == 8 );
+	XLOPER12 testXlOper;
+	testXlOper.val.w = 10;
+	testXlOper.xltype = xltypeInt;
+	REQUIRE ( sizeof ( XLOPER12 ) == 32 );
+	REQUIRE ( sizeof ( testXlOper ) == 32 );
+	REQUIRE ( sizeof ( testXlOper.val.w ) == 4 ); // short
+	REQUIRE ( sizeof ( testXlOper.val.num ) == 8 ); // double
+	REQUIRE ( sizeof ( testXlOper.val.str ) == 8 ); // LPSTR
+	REQUIRE ( sizeof ( testXlOper.val.xbool ) == 4 ); // WORD
+	REQUIRE ( sizeof ( testXlOper.xltype ) == 4 ); // WORD
+}
 TEST_CASE ( "Call function with LPXLOPER types from assembly" "[c-asm-c-xl-4-parm]" ) {
 	void *f_ptr = &PriceEuropean;
 	LPXLOPER args = new XLOPER [ 4 ];
@@ -38,7 +67,7 @@ TEST_CASE ( "Call function with LPXLOPER types from assembly" "[c-asm-c-xl-4-par
 
 	int s_1 = sizeof ( f_ptr );
 	int s_2 = sizeof ( LPXLOPER );
-	LPXLOPER xlResult = (LPXLOPER)call_function ( f_ptr, 4, args );
-	REQUIRE ( xlResult->val.w == 19 );
-	REQUIRE ( xlResult->xltype == xltypeInt );
+	//LPXLOPER xlResult = (LPXLOPER)call_function ( f_ptr, 4, args );
+	//REQUIRE ( xlResult->val.w == 19 );
+	//REQUIRE ( xlResult->xltype == xltypeInt );
 }
