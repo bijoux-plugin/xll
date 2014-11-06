@@ -38,16 +38,6 @@ __declspec(dllexport) LPXLOPER WINAPIV Twelve_XLOPER_Parameters(LPXLOPER parm1, 
 
 extern "C" void *call_function64 ( void *f_ptr, int n_args, void *args );
 
-/*
-LPXLOPER call_custom_function ( void *func_ptr, int number_of_parameters, void *parameters ) {
-	LPXLOPER xlResult = new XLOPER;
-	xlResult->xltype = xltypeInt;
-	xlResult->val.w = 19;
-
-	return xlResult;
-}
-*/
-
 TEST_CASE ( "Validate sizes of types for 64-bit Excel using XLOPER", "[validate-xloper-4]" ) {
 	REQUIRE ( sizeof ( int ) == 4 );
 	REQUIRE ( sizeof ( LPXLOPER ) == 8 );

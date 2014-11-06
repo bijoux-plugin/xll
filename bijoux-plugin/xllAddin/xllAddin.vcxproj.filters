@@ -52,8 +52,13 @@
     <None Include="xllAddin.def">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="caller64.asm">
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="caller64.asm">
       <Filter>Source Files</Filter>
-    </None>
+    </MASM>
+    <MASM Include="caller32.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
 </Project>

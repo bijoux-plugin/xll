@@ -149,7 +149,9 @@
     <ClCompile Include="assemblyCallerTests_32bit.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="callXLFunction.64bit.cpp" />
+    <ClCompile Include="callXLFunction.64bit.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="OtherTests.cpp" />
   </ItemGroup>
   <ItemGroup>

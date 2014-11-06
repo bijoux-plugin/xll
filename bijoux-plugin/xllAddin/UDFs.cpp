@@ -10,7 +10,10 @@
 extern HMODULE hCalypso2Excel;
 extern std::vector<FUNC_INFO*> all_functions;
 
+//extern "C" void *call_function ( void *f_ptr, int n_args, void *args );
+extern "C" LPXLOPER call_function ( void *f_ptr, int n_args, LPXLOPER *args );
 
+/*
 LPXLOPER call_custom_function ( int number_of_parameters, void *parameters, void *func_ptr ) {
 
 	LPXLOPER result;
@@ -46,7 +49,7 @@ LPXLOPER call_custom_function ( int number_of_parameters, void *parameters, void
 
 	return result;
 }
-
+*/
 
 #ifdef __cplusplus
 extern "C"
@@ -67,8 +70,17 @@ LPXLOPER WINAPI FSExecuteNumber(int funcNumber,
 
 	if (funcNumber <= all_functions.size()) {
 		FUNC_INFO* fInfo = all_functions.at(funcNumber-1);
-		void *f_fptr = GetProcAddress ( hCalypso2Excel, fInfo->dllFuncName );
-		xRes = call_custom_function(fInfo->numParams, xOpers, f_fptr);
+		void *func_ptr = GetProcAddress ( hCalypso2Excel, fInfo->dllFuncName );
+		bool allParametersPresent = true;
+		for ( int i=0; i < fInfo->numParams; i++ ) {
+			if ( xOpers[i]->xltype == xltypeMissing ) {
+				allParametersPresent = false;
+				XLUtil::MakeString(xRes, "Missing Parameter(s)");
+				return xRes;
+				break;
+			}
+		}
+		xRes = call_function ( func_ptr, fInfo->numParams, xOpers );
 	} else {
 		XLUtil::MakeString(xRes, "Invalid Function");
 	}
