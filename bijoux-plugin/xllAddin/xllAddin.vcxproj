@@ -166,7 +166,9 @@
     <ClInclude Include="XLUtil.h" />
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="caller32.asm" />
+    <MASM Include="caller32.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </MASM>
     <MASM Include="caller64.asm">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
