@@ -80,15 +80,19 @@ TEST_CASE ( "Validate sizes of types for 64-bit Excel using XLOPER12", "[validat
 
 TEST_CASE ( "Call function with 4 LPXLOPER types from assembly" "[c-asm-c-xl-4-parm]" ) {
 	void *f_ptr = &Four_XLOPER_Parameters;
-	LPXLOPER args = new XLOPER [ 4 ];
-	args[0].xltype = xltypeInt;
-	args[0].val.w = 1;
-	args[1].xltype = xltypeInt;
-	args[1].val.w = 4;
-	args[2].xltype = xltypeInt;
-	args[2].val.w = 6;
-	args[3].xltype = xltypeInt;
-	args[3].val.w = 8;
+	LPXLOPER *args = new LPXLOPER [ 4 ];
+	args[0] = new XLOPER;
+	args[0]->xltype = xltypeInt;
+	args[0]->val.w = 1;
+	args[1] = new XLOPER;
+	args[1]->xltype = xltypeInt;
+	args[1]->val.w = 4;
+	args[2] = new XLOPER;
+	args[2]->xltype = xltypeInt;
+	args[2]->val.w = 6;
+	args[3] = new XLOPER;
+	args[3]->xltype = xltypeInt;
+	args[3]->val.w = 8;
 
 	LPXLOPER xlResult = (LPXLOPER)call_function64 ( f_ptr, 4, args );
 	REQUIRE ( xlResult->val.w == 19 );
@@ -98,10 +102,11 @@ TEST_CASE ( "Call function with 4 LPXLOPER types from assembly" "[c-asm-c-xl-4-p
 TEST_CASE ( "Call function with 5 LPXLOPER types from assembly" "[c-asm-c-xl-5-parm]" ) {
 	int total = 0;
 	void *f_ptr = &Five_XLOPER_Parameters;
-	LPXLOPER args = new XLOPER [ 5 ];
+	LPXLOPER *args = new LPXLOPER [ 5 ];
 	for ( int i=0; i < 5; i++ ) {
-		args[i].xltype = xltypeInt;
-		args[i].val.w = i;
+		args[i] = new XLOPER;
+		args[i]->xltype = xltypeInt;
+		args[i]->val.w = i;
 		total += i;
 	}
 	LPXLOPER xlResult = (LPXLOPER)call_function64 ( f_ptr, 5, args );
@@ -113,10 +118,11 @@ TEST_CASE ( "Call function with 6 LPXLOPER types from assembly" "[c-asm-c-xl-6-p
 	int num_of_parms = 6;
 	int total = 0;
 	void *f_ptr = &Six_XLOPER_Parameters;
-	LPXLOPER args = new XLOPER [ num_of_parms ];
+	LPXLOPER *args = new LPXLOPER [ num_of_parms ];
 	for ( int i=0; i < num_of_parms; i++ ) {
-		args[i].xltype = xltypeInt;
-		args[i].val.w = i;
+		args[i] = new XLOPER;
+		args[i]->xltype = xltypeInt;
+		args[i]->val.w = i;
 		total += i;
 	}
 	LPXLOPER xlResult = (LPXLOPER)call_function64 ( f_ptr, num_of_parms, args );
@@ -128,10 +134,11 @@ TEST_CASE ( "Call function with 12 LPXLOPER types from assembly" "[c-asm-c-xl-12
 	int num_of_parms = 12;
 	int total = 0;
 	void *f_ptr = &Twelve_XLOPER_Parameters;
-	LPXLOPER args = new XLOPER [ num_of_parms ];
+	LPXLOPER *args = new LPXLOPER [ num_of_parms ];
 	for ( int i=0; i < num_of_parms; i++ ) {
-		args[i].xltype = xltypeInt;
-		args[i].val.w = i;
+		args[i] = new XLOPER;
+		args[i]->xltype = xltypeInt;
+		args[i]->val.w = i;
 		total += i;
 	}
 	LPXLOPER xlResult = (LPXLOPER)call_function64 ( f_ptr, num_of_parms, args );
