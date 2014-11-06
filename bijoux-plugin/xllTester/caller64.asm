@@ -208,7 +208,7 @@ add_parm_to_stack:
 ; if there are 5 parameters only, jump to function call
 ; Increment r13 by 4 and r14 by 8
 	add r13, 24
-	add r14, 24
+	add r14, 8
 	loop add_parm_to_stack
 
 do_first_parameters:
