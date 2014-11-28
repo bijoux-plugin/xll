@@ -74,12 +74,6 @@
     <ClCompile Include="gtest\src\gtest-typed-test.cc">
       <Filter>gtest\src</Filter>
     </ClCompile>
-    <ClCompile Include="tcpClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tcpClientTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gmock\src\gmock.cc">
       <Filter>gmock\src</Filter>
     </ClCompile>
@@ -100,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="gmock\src\gmock-spec-builders.cc">
       <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpClientTest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="gmock\include\gmock\gmock-spec-builders.h">
       <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TcpClient.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
