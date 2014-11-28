@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{d1ce1589-7906-4136-bce8-b0a864c7e56d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gtest">
+      <UniqueIdentifier>{6831299b-4a1a-45d9-a42d-918c424dac20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gtest\include">
+      <UniqueIdentifier>{a5badc95-7a4f-4a62-ba55-1fabe750dd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gtest\include\gtest">
+      <UniqueIdentifier>{bd187759-c833-48d8-a3f1-f01dd364bc3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gtest\include\gtest\internal">
+      <UniqueIdentifier>{ea32c41f-0fb9-4c75-bbd2-b3163ad58355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gtest\src">
+      <UniqueIdentifier>{35e91ce9-c653-4a2a-8411-2e9f657124f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock">
+      <UniqueIdentifier>{a85386ab-1026-44d3-9112-6889e75b9cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock\src">
+      <UniqueIdentifier>{b17dd059-051f-4262-baee-e53f925a01c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock\include">
+      <UniqueIdentifier>{71d459af-602b-414d-81a4-f01482076496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock\include\gmock">
+      <UniqueIdentifier>{be0428b6-ac1d-44da-9d60-3aa3dd926c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock\include\gmock\internal">
+      <UniqueIdentifier>{f840181c-8c72-4cf3-a9ee-18be25981518}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-all.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest_main.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-death-test.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-filepath.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-port.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-printers.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-test-part.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest\src\gtest-typed-test.cc">
+      <Filter>gtest\src</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpClientTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock_main.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock-all.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock-cardinalities.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock-internal-utils.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock-matchers.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+    <ClCompile Include="gmock\src\gmock-spec-builders.cc">
+      <Filter>gmock\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="client.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="gtest\include\gtest\internal\gtest-param-util-generated.h.pump">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </None>
+    <None Include="gtest\include\gtest\internal\gtest-tuple.h.pump">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </None>
+    <None Include="gtest\include\gtest\internal\gtest-type-util.h.pump">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </None>
+    <None Include="gtest\include\gtest\gtest-param-test.h.pump">
+      <Filter>gtest\include\gtest</Filter>
+    </None>
+    <None Include="gmock\include\gmock\internal\gmock-generated-internal-utils.h.pump">
+      <Filter>gmock\include\gmock\internal</Filter>
+    </None>
+    <None Include="gmock\include\gmock\gmock-generated-actions.h.pump">
+      <Filter>gmock\include\gmock</Filter>
+    </None>
+    <None Include="gmock\include\gmock\gmock-generated-function-mockers.h.pump">
+      <Filter>gmock\include\gmock</Filter>
+    </None>
+    <None Include="gmock\include\gmock\gmock-generated-matchers.h.pump">
+      <Filter>gmock\include\gmock</Filter>
+    </None>
+    <None Include="gmock\include\gmock\gmock-generated-nice-strict.h.pump">
+      <Filter>gmock\include\gmock</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\xlCall.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-death-test-internal.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-filepath.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-internal.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-linked_ptr.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-param-util.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-param-util-generated.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-port.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-string.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-tuple.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\internal\gtest-type-util.h">
+      <Filter>gtest\include\gtest\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest_pred_impl.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest_prod.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-death-test.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-message.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-param-test.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-printers.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-spi.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-test-part.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\include\gtest\gtest-typed-test.h">
+      <Filter>gtest\include\gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest\src\gtest-internal-inl.h">
+      <Filter>gtest\src</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\internal\gmock-generated-internal-utils.h">
+      <Filter>gmock\include\gmock\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\internal\gmock-internal-utils.h">
+      <Filter>gmock\include\gmock\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\internal\gmock-port.h">
+      <Filter>gmock\include\gmock\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-actions.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-cardinalities.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-generated-actions.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-generated-function-mockers.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-generated-matchers.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-generated-nice-strict.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-matchers.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-more-actions.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-more-matchers.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+    <ClInclude Include="gmock\include\gmock\gmock-spec-builders.h">
+      <Filter>gmock\include\gmock</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

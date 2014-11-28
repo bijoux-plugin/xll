@@ -30,6 +30,7 @@ enum optionType {
 	call,
 	put
 };
+
 __declspec(dllexport) LPXLOPER WINAPIV PriceAmerican(
 	LPXLOPER _timeToExpirationT,
 	LPXLOPER _stockPriceS,

@@ -13,44 +13,6 @@ extern std::vector<FUNC_INFO*> all_functions;
 //extern "C" void *call_function ( void *f_ptr, int n_args, void *args );
 extern "C" LPXLOPER call_function ( void *f_ptr, int n_args, LPXLOPER *args );
 
-/*
-LPXLOPER call_custom_function ( int number_of_parameters, void *parameters, void *func_ptr ) {
-
-	LPXLOPER result;
-	int i;
-
-	int s_ret = sizeof ( result );
-	int s_void = sizeof ( parameters );
-	int s_f_ptr = sizeof ( func_ptr );
-#ifdef _WIN64
-#else
-	__asm
-	{
-		mov i, 0
-		mov ecx, number_of_parameters
-		loopstart:
-			; must copy values[i] into eax and push
-			mov eax, parameters
-			add eax, i
-			mov eax, [eax]
-			push eax
-			add i, 4
-			dec ecx
-			jnz loopstart
-		call func_ptr
-		mov result, eax
-		mov ecx, number_of_parameters
-		loopclean:
-			pop eax
-			dec ecx
-			jnz loopclean
-	}
-#endif
-
-	return result;
-}
-*/
-
 #ifdef __cplusplus
 extern "C"
 {

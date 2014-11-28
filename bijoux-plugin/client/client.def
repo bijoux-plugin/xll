@@ -1,0 +1,5 @@
+LIBRARY      "client.dll"
+
+EXPORTS
+	GetNumberOfFunctions @1
+	GetFunctionInfo @2
