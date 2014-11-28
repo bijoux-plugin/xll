@@ -91,6 +91,8 @@
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
     <TargetExt>.xll</TargetExt>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -101,6 +103,7 @@
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
     <TargetExt>.xll</TargetExt>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\Intermediate</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
     <LinkIncremental>false</LinkIncremental>
