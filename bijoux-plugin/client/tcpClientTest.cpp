@@ -28,6 +28,11 @@ public:
 
 
 
+class MockTcpClient : public TcpClient {
+public:
+	MOCK_METHOD1(getNextXLOper, int());
+};
+
 int Factorial ( int a ) {
 	return -5;
 }
@@ -48,7 +53,7 @@ TEST(TestCreatingMock, TestOne) {
 
 	EXPECT_EQ(1, niceCodec.GetSize());
 	
-	TcpClient tcpClient;
+	MockTcpClient tcpClient;
 	XLOPER xlInt;
 	xlInt.xltype = xltypeInt;
 	xlInt.val.w = 100;
